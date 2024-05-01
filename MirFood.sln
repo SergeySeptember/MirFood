@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirFood.Web", "MirFood.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirFood.Web.Client", "MirFood.Web\MirFood.Web.Client\MirFood.Web.Client.csproj", "{78A23086-5C58-44EC-B759-58FD4FFA5E3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5ED95E05-B5FA-450B-BE23-F3D834396901}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{78A23086-5C58-44EC-B759-58FD4FFA5E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78A23086-5C58-44EC-B759-58FD4FFA5E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78A23086-5C58-44EC-B759-58FD4FFA5E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED95E05-B5FA-450B-BE23-F3D834396901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED95E05-B5FA-450B-BE23-F3D834396901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED95E05-B5FA-450B-BE23-F3D834396901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED95E05-B5FA-450B-BE23-F3D834396901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

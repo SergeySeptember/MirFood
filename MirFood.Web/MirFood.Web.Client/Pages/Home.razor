@@ -1,16 +1,53 @@
-﻿@page "/"
+﻿@using Domain
 @inject DialogService DialogService
+@page "/"
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<RadzenPanel AllowCollapse="true" Class="rz-my-10 rz-mx-auto" Style="width: 1050px;">
+    <HeaderTemplate>
+        <RadzenText TextStyle="TextStyle.H6" Class="rz-display-flex rz-align-items-center rz-m-0">
+            <RadzenIcon Icon="local_dining" class="rz-mr-1"/><b>Dishes</b>
+        </RadzenText>
+    </HeaderTemplate>
+    <ChildContent>
+        <RadzenCard Class="rz-my-12 rz-mx-auto" Style="max-width: 1000px">
+            <RadzenStack Orientation="Orientation.Vertical" Class="rz-p-4">
+                <RadzenStack Orientation="Orientation.Horizontal" Gap="1rem" AlignItems="AlignItems.Center">
+                    <RadzenCheckBox TValue="bool"
+                                    Value="@menuItems.FirstDishes.FirstPosition.IsSelected"
+                                    Change="@((args) => HandleCheckboxChange(args, menuItems))" />
+                    <div @onclick="@(args => ShowDescription(@menuItems.FirstDishes.FirstPosition.Description))">
+                        <RadzenText TextStyle="TextStyle.Body1" Text="@menuItems.FirstDishes.FirstPosition.Name">
+                            <b>@menuItems.FirstDishes.FirstPosition.Name</b>
+                        </RadzenText>
+                    </div>
+                </RadzenStack>
+                <RadzenStack Orientation="Orientation.Horizontal" Gap="1rem" AlignItems="AlignItems.Center">
+                    <RadzenCheckBox @bind-Value="@menuItems.FirstDishes.SecondPosition.IsSelected"/>
+                    <div @onclick="@(args => ShowDescription(@menuItems.FirstDishes.SecondPosition.Description))">
+                        <RadzenText TextStyle="TextStyle.Body1" Text="@menuItems.FirstDishes.SecondPosition.Name">
+                            <b>@menuItems.FirstDishes.FirstPosition.Name</b>
+                        </RadzenText>
+                    </div>
+                </RadzenStack>
+            </RadzenStack>
+        </RadzenCard>
+    </ChildContent>
 
-Welcome to your new app.
+</RadzenPanel>
 
-<RadzenButton Click="@ButtonClicked" Text="Hi"></RadzenButton>
 @code {
-    void ButtonClicked()
+    MenuItem menuItems = MenuItem.GetMenu();
+
+    async Task ShowDescription(string recipe)
     {
-        DialogService.Alert("Well");
+        await DialogService.OpenAsync("Состав:", ds => @<div>@recipe</div>, new() { CloseDialogOnOverlayClick = true });
     }
+
+    private void HandleCheckboxChange(bool args, MenuItem menuItems)
+    {
+        
+    }
+
 }
